@@ -23,9 +23,10 @@ public class RoverSystemParser {
     }
 
     private Rover parseRover() {
+        String id = scanner.scanRoverId()   ;
         Coordinate coordinate = scanner.scanCoordinate();
         Direction heading = scanner.scanDirection();
-        return new Rover(coordinate, heading);
+        return new Rover(id,coordinate, heading);
     }
 
     public RoverSystem parse() {
@@ -46,5 +47,9 @@ public class RoverSystemParser {
         }
 
         return roverCommands;
+    }
+
+    private boolean isRoverDefinition(String token) {
+        return token != null && token.matches("R\\d+");
     }
 }

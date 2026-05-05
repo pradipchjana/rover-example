@@ -13,8 +13,9 @@ public class App {
     static void main() {
         String text = """
 5 5
-1 5 N
-LFFRFLFFFR
+R1 1 2 N
+R2 3 3 E
+R1: LFFRFLFFFR
                 """;
 
         RoverSystemScanner scanner = RoverSystemScanner.from(text);

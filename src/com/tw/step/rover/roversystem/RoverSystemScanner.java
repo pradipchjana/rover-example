@@ -45,6 +45,10 @@ public class RoverSystemScanner {
         return new Coordinate(x,y);
     }
 
+    public String scanRoverId() {
+        return consume();
+    }
+
     public Direction scanDirection() {
         return Direction.valueOf(this.consume());
     }
