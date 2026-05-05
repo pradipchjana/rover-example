@@ -14,7 +14,7 @@ class RoverCommandsTest {
     void shouldExecuteCommandsInSequence() {
         Navigator navigator = Navigator.create();
         InfinitePlateau boundary = new InfinitePlateau();
-        RoverCommands commands = new RoverCommands();
+        RoverCommands commands = new RoverCommands("R1");
         Rover rover = new Rover(new Coordinate(0, 0), Direction.N);
 
         commands.add(new TurnRightCommand(navigator, boundary));
