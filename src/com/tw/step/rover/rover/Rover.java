@@ -50,6 +50,10 @@ public class Rover {
         this.coordinate = coordinate;
     }
 
+    public String getId() {
+        return id;
+    }
+
     boolean isWithin(Boundary boundary) {
         return boundary.isWithin(this.coordinate);
     }

@@ -3,6 +3,7 @@ package com.tw.step.rover.roversystem;
 import com.tw.step.rover.boundary.InfinitePlateau;
 import com.tw.step.rover.commands.MoveCommand;
 import com.tw.step.rover.commands.RoverCommands;
+import com.tw.step.rover.commands.RoverCommandsBuilder;
 import com.tw.step.rover.position.Coordinate;
 import com.tw.step.rover.position.Direction;
 import com.tw.step.rover.position.Navigator;
@@ -16,10 +17,10 @@ class RoverSystemTest {
     void shouldExecuteCommandsForAddedRover() {
         RoverSystem roverSystem = new RoverSystem();
         Rover rover = new Rover(new Coordinate(0, 0), Direction.N);
-        RoverCommands commands = new RoverCommands();
+        RoverCommands commands = new RoverCommandsBuilder().createRoverCommands();
         commands.add(new MoveCommand(Navigator.create(), new InfinitePlateau()));
 
-        roverSystem.addRover(rover);
+        roverSystem.addRover(rover,"");
         roverSystem.addCommands(commands);
         roverSystem.execute();
 
