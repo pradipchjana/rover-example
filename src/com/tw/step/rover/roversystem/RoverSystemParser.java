@@ -31,14 +31,17 @@ public class RoverSystemParser {
 
     public RoverSystem parse() {
         RoverSystem roverSystem = new RoverSystem();
-           while (isRoverDefinition(scanner.peek())) {
+        while (isRoverDefinition(scanner.peek())) {
+            String id = scanner.peek();
             Rover rover = parseRover();
-            roverSystem.addRover(rover,rover.getId());
+            roverSystem.addRover(rover,id);
         }
+
         while (scanner.peek() != null) {
             RoverCommands roverCommands = parseRoverCommands();
             roverSystem.addCommands(roverCommands);
         }
+
         return roverSystem;
     }
 
