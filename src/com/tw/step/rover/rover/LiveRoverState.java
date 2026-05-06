@@ -26,10 +26,11 @@ public class LiveRoverState implements RoverState {
     @Override
     public RoverState move(Navigator navigator, Boundary boundary) {
         Coordinate nextCoordinate = rover.getNextCoordinateInternal(navigator);
+        rover.setCoordinate(nextCoordinate);
+
         if(!rover.isWithin(boundary)) {
             return new DeadRoverState(rover);
         }
-        rover.setCoordinate(nextCoordinate);
         return this;
     }
 

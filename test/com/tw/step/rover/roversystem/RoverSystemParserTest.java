@@ -18,4 +18,15 @@ class RoverSystemParserTest {
 
         assertEquals("{R1=3 2 E}", roverSystem.toString());
     }
+
+    @Test
+    void shouldParseAndExecuteRoverSystemWithOnlyRoverDefinition() {
+        RoverSystemScanner scanner = RoverSystemScanner.from("R1 1 2 N");
+        RoverSystemParser parser = new RoverSystemParser(scanner, Navigator.create(), new InfinitePlateau(), new CommandCreator());
+
+        RoverSystem roverSystem = parser.parse();
+        roverSystem.execute();
+
+        assertEquals("{R1=1 2 N}", roverSystem.toString());
+    }
 }

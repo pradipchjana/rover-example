@@ -50,8 +50,8 @@ public class RoverSystemParser {
         String id = token.replace(":", "");
         RoverCommands roverCommands = new RoverCommands(id);
         String instructions = scanner.consume();
-        for (int i = 0; i < instructions.length(); i++) {
-            RoverCommand roverCommand = commandCreator.create(instructions.charAt(i), navigator, boundary);
+        for (char inst : instructions.toCharArray()) {
+            RoverCommand roverCommand = commandCreator.create(inst, navigator, boundary);
             roverCommands.add(roverCommand);
         }
 
